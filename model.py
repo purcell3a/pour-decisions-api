@@ -25,21 +25,9 @@ class Wine(db.Model):
     wine_img = db.Column(db.String)
     wine_sub = db.Column(db.String)
 
-    # userpair_relationship = db.relationship('UserPair')
-    # communitypair_relationship = db.relationship('CommunityPair')
-    pair_relationship = db.relationship('Pair')
-
     def __repr__(self):
         return f'<Wine Information wine_id={self.wine_id} wine_name={self.wine_name}>'
 
-    def get(self, id=0):
-        # if id == 0:
-        #     return random.choice(ai_quotes), 200
-
-        # for quote in ai_quotes:
-        #     if(quote["id"] == id):
-        #         return quote, 200
-        return "Quote not found", 404
 
 class Cheese(db.Model):
     """A cheese."""
@@ -62,33 +50,8 @@ class Cheese(db.Model):
                           primary_key=True,
                           autoincrement=True,)
 
-    # userpair_relationship = db.relationship('UserPair')
-    # communitypair_relationship = db.relationship('CommunityPair')
-    pair_relationship = db.relationship('Pair')
-
     def __repr__(self):
         return f'<Cheese Information cheese_id={self.cheese_id} cheese_name={self.cheese_name}>'
-
-
-class Pair(db.Model):
-    """A pairing of wine and cheese."""
-
-    __tablename__ = "pairs"
-
-    pair_id = db.Column(db.Integer,
-                        primary_key=True,
-                        autoincrement=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    wine_id = db.Column(db.Integer, db.ForeignKey('wines.wine_id'))
-    cheese_id = db.Column(db.Integer, db.ForeignKey('cheeses.cheese_id'))
-    # user_made = db.Column(db.Boolean, nullable=False)
-
-    user_relationship = db.relationship('User')
-    wine_relationship = db.relationship('Wine')
-    cheese_relationship = db.relationship('Cheese')
-
-    def __repr__(self):
-        return f'Pair pair_id={self.pair_id} user_id={self.user_id}'
 
 
 def connect_to_db(app):

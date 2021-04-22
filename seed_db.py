@@ -5,7 +5,7 @@ import crud
 import server
 
 # import all model classes and functions to talk to db
-from model import db, connect_to_db, User, Wine, Cheese, Pair, Rating
+from model import db, connect_to_db, Wine, Cheese
 import psycopg2
 import pandas as pd
 
@@ -23,7 +23,7 @@ connect_to_db(server.app)
 db.create_all()
 
 # populate cheeses table from csv
-cheese_file = open("cheese.csv", "r")
+cheese_file = open("data/cheese.csv", "r")
 next(cheese_file)
 
 for row in cheese_file:
@@ -41,7 +41,7 @@ for row in cheese_file:
 cheese_file.close()
 
 # populate wines table
-wine_file = open("wine.csv", "r")
+wine_file = open("data/wine.csv", "r")
 next(wine_file)
 
 for row in wine_file:

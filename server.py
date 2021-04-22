@@ -5,19 +5,16 @@ import random
 app = Flask(__name__)
 api = Api(app)
 
-class Quote(Resource):
 
-    def get(self, id=0):
-        if id == 0:
-            return random.choice(ai_quotes), 200
-
-        for quote in ai_quotes:
-            if(quote["id"] == id):
-                return quote, 200
-        return "Quote not found", 404
+class Cheese(Resources):
+    def get(self):
+        data = pd.read_csv('data/cheese.csv')  # read CSV
+        data = data.to_dict()  # convert dataframe to dictionary
+        return {'data': data}, 200  # return data and 200 OK code
 
 
-api.add_resource(Quote, "/ai-quotes", "/ai-quotes/", "/ai-quotes/<int:id>")
+
+api.add_resource(Cheese, "/cheese")
 
 if __name__ == '__main__':
     app.run(debug=True)
