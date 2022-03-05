@@ -3,4 +3,4 @@
 - https://code.tutsplus.com/tutorials/building-restful-apis-with-flask-diy--cms-26625
 - https://www.codementor.io/@sagaragarwal94/building-a-basic-restful-api-in-python-58k02xsiq
 - https://github.com/sagaragarwal94/python_rest_flask
-- https://towardsdatascience.com/the-right-way-to-build-an-api-with-python-cd08ab285f8f
+- https://towardsdatascience.com/the-right-way-to-build-an-api-with-python-cd08ab285f8f .
